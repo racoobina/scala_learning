@@ -13,7 +13,7 @@ object Object_Example {
 
   }
 }
-object Chapter2 extends App {
+object Chapter2_StartWorks extends App {
   val x, y, z = readInt()
   println(x*y*z)
 
@@ -21,7 +21,7 @@ object Chapter2 extends App {
   println(prefix+name)
 }
 
-object Chapter3 extends App{
+object Chapter3_Types extends App{
 
 
  def normalDistribution(mu:Double, sigma:Double, x:Double):Double ={
@@ -46,7 +46,18 @@ val w:BigDecimal= (weight*(1-potatoWaterRatio)/(1-crispWaterRatio)).setScale(5, 
 
  }
   println(nonZeroBiteCounter())
-  //Красивый способ
-  print(readLine().toInt.toBinaryString.replaceAll("0", "").length)
+  //Красивый способ:
+  //println(readLine().toInt.toBinaryString.replaceAll("0", "").length)
 
+  def isCapital(word: String= "aNy STring", pos: Int=1): Boolean = {
+    word.charAt(pos).isUpper
+    //Можно было так: word(pos).isUpper
+  }
+  println(isCapital())
+
+  val twoDigits=readLine()
+  val stringForRevers=readLine()
+  def stringRevers(twoDigits:String, stringForRevers:String): Unit ={
+    twoDigits.split(" ")
+  }
 }
