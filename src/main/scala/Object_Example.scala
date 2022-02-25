@@ -2,7 +2,6 @@ import ru.tinkoff.Module.{name => prefix, name2 => _}
 
 import scala.io.StdIn.readLine
 import scala.io.StdIn.readInt
-import scala.math.BigDecimal.RoundingMode
 import scala.math.{Pi, exp, pow, sqrt}
 import scala.math.BigDecimal.RoundingMode.HALF_UP
 
@@ -38,7 +37,7 @@ val w:BigDecimal= (weight*(1-potatoWaterRatio)/(1-crispWaterRatio)).setScale(5, 
  def nonZeroBiteCounter(x : Int =15): Int ={
    var c = 0
    var a = x
-   for (i<- 1 to 32){
+   for (_<- 1 to 32){
      c += a & 1
      a = a>>1
    }
@@ -55,9 +54,16 @@ val w:BigDecimal= (weight*(1-potatoWaterRatio)/(1-crispWaterRatio)).setScale(5, 
   }
   println(isCapital())
 
-  val twoDigits=readLine()
-  val stringForRevers=readLine()
-  def stringRevers(twoDigits:String, stringForRevers:String): Unit ={
-    twoDigits.split(" ")
+  def substringRevers(interval: String= "2 6", str: String="foobarbaz"): String ={
+    val Array(startIndex, endIndex) = interval.split(" ").map(_.toInt)
+    val result = s"${str.take(startIndex)}${str.substring(startIndex, endIndex + 1).reverse}${str.drop(endIndex + 1)}"
+    result
   }
+println(substringRevers())
+
+  def isSnakeCaseStyle(inputStr: String="Snake_Case"): Boolean = {
+  val str1=inputStr.matches("""^[a-z]+(_[a-z]+)*$""")
+    str1
+  }
+println(isSnakeCaseStyle())
 }
